@@ -20,5 +20,6 @@ namespace Business.Abstract
         // IResult => For void methods
         IResult Add(Product product);
         IResult Update(Product product);
+        IResult AddTransactionalTest(Product product);
     }
 }
