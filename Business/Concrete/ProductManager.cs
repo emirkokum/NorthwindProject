@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -37,7 +36,7 @@ namespace Business.Concrete
 
         [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
-        [CacheRemoveAspect("IProductService.Get")]
+        //CacheRemoveAspect("IProductService.Get")]
         public IResult Add(Product product)
         {
             IResult result = BusinessRules.Run(

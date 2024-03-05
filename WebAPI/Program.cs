@@ -23,6 +23,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors();
+
 //Jwt configuration starts here
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -69,6 +71,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
